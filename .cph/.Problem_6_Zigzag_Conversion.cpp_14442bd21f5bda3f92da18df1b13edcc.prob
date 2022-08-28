@@ -1,0 +1,1 @@
+{"name":"Local: Problem_6_Zigzag_Conversion","url":"/home/sayak01/Coding/LeetCode/Problem_6_Zigzag_Conversion.cpp","tests":[{"id":1661724658434,"input":"1\nPAYPALISHIRING\n7","output":"PNAIGYRPIAHLSI"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/sayak01/Coding/LeetCode/Problem_6_Zigzag_Conversion.cpp","group":"local","local":true}
