@@ -1,3 +1,8 @@
+/*
+Author : Sayak Das
+Link : https://leetcode.com/problems/longest-common-prefix/submissions/
+Date  : 8Oct2022
+*/
 #include "bits/stdc++.h"
 using namespace std;
 class Solution {
