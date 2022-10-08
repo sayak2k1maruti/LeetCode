@@ -7,7 +7,7 @@ public:
         if(num >= 1000){
             return "M" + intToRoman(num - 1000);
         }else if(num >= 900){
-            return "DM" + intToRoman(num - 900);
+            return "CM" + intToRoman(num - 900);
         }else if(num >= 500){
             return "D" + intToRoman(num - 500);
         }else if(num >= 400){
@@ -15,7 +15,7 @@ public:
         }else if(num >= 100){
             return "C" + intToRoman(num - 100);
         }else if(num >= 90){
-            return "LC" + intToRoman(num - 90);
+            return "XC" + intToRoman(num - 90);
         }else if(num >= 50){
             return "L" + intToRoman(num - 50);
         }else if(num >= 40){
@@ -33,5 +33,6 @@ public:
         }else if(num <= 0){
             return "";
         }
+        return "";
     }
 };
