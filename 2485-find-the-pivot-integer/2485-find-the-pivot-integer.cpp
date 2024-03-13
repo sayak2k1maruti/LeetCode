@@ -9,8 +9,9 @@ public:
         p^2 = (n^2 + n)/2
         p^2 = n*(n+1)/2
         */
-        float pivot = sqrt(n*(n+1)/2);
-        if(pivot==(int)pivot)
+        int S = n*(n+1)/2;
+        int pivot = sqrt(S);
+        if(pivot*pivot==S)
             return pivot;
         return -1;
     }
