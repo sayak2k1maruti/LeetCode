@@ -18,7 +18,7 @@ public:
         if(word.length() > board.size() * board[0].size())  return false;
         
         //Checking if all charectors in the word are present in board [Optimization]
-        bool chars[27] = {false};
+        bool chars[128] = {false};
         for(int i = 0; i < board.size();i++){
             for(int j =0 ; j < board[0].size();j++){
                 chars[board[i][j] - 'A'] = true;
