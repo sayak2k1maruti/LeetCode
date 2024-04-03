@@ -6,10 +6,10 @@ public:
         char temp = board[i][j];
         if (word[index] == board[i][j]){
             board[i][j] = '!';
-            if ( _exist(board,word,i+1,j,index+1)) return true;
-            if ( _exist(board,word,i,j+1,index+1))   return true;
-            if ( _exist(board,word,i-1,j,index+1))   return true;
-            if ( _exist(board,word,i,j-1,index+1))   return true;
+            if ( _exist(board,word,i+1,j,index+1))      return true;
+            if ( _exist(board,word,i,j+1,index+1))      return true;
+            if ( _exist(board,word,i-1,j,index+1))      return true;
+            if ( _exist(board,word,i,j-1,index+1))      return true;
         } 
         board[i][j] = temp;
         return false ;
