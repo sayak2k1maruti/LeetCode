@@ -18,14 +18,14 @@ public:
         if(word.length() > board.size() * board[0].size())  return false;
         
         //Checking if all charectors in the word are present in board [Optimization]
-        vector<char> puzzle;
+        bool chars[27] = {false};
         for(int i = 0; i < board.size();i++){
             for(int j =0 ; j < board[0].size();j++){
-                puzzle.push_back(board[i][j]);
+                chars[board[i][j] - 'A'] = true;
             }
         }
         for (int i = 0 ; i < word.length() ; i++){
-            if (find(puzzle.begin(),puzzle.end(),word[i]) == puzzle.end())   return false;
+            if (!chars[word[i]-'A'])   return false;
         }
         //
 
