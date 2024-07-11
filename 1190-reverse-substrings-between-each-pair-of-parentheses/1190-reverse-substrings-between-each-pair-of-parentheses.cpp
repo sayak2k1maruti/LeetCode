@@ -1,0 +1,22 @@
+class Solution {
+public:
+    string reverseParentheses(string s) {
+        string innr = "";
+        int left = 0;
+        int right = 0;
+        for (int i = 0 ; i < s.length(); i++){
+            if (s[i] == '(')    {left = i;innr = "";}
+            else if(s[i]==')')  {right=i;break;}
+            else innr += s[i];
+        }
+        string left_s = "";
+        string right_s = "";
+        for(int i = 0 ; i < left; i++)  left_s += s[i];
+        for(int i = right+1; i < s.length() ; i ++ )  right_s += s[i];
+        if (innr.length()!=s.length()){
+            reverse(innr.begin(),innr.end());
+            return reverseParentheses(left_s + innr + right_s);
+        }
+        return s;
+    }
+};
