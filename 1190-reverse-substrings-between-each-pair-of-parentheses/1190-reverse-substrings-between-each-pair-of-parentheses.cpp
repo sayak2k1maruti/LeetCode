@@ -9,10 +9,10 @@ public:
             else if(s[i]==')')  {right=i;break;}
             else innr += s[i];
         }
-        string left_s = "";
-        string right_s = "";
-        for(int i = 0 ; i < left; i++)  left_s += s[i];
-        for(int i = right+1; i < s.length() ; i ++ )  right_s += s[i];
+        string left_s = left!=0 ? s.substr(0,left) : "";
+        string right_s = right+1<s.length() ? s.substr(right+1,s.length()-right+1) : "";
+        // for(int i = 0 ; i < left; i++)  left_s += s[i];
+        // for(int i = right+1; i < s.length() ; i ++ )  right_s += s[i];
         if (innr.length()!=s.length()){
             reverse(innr.begin(),innr.end());
             return reverseParentheses(left_s + innr + right_s);
