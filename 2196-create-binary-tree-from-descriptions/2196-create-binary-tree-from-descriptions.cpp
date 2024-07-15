@@ -16,7 +16,7 @@ public:
         map<int,bool> isParentNode;
         for(int i = 0; i < descriptions.size();i++){
             for (int j = 0 ; j < 2;j++){
-                if(isParentNode.find(descriptions[i][j]) == isParentNode.end()) isParentNode[descriptions[i][j]]= true;   
+                isParentNode[descriptions[i][j]]= true;   
             }
         }
         for(int i = 0; i < descriptions.size();i++){
