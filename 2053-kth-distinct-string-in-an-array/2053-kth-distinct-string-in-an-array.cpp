@@ -7,7 +7,7 @@ public:
 
         int indx = 0;
         for (auto str : arr){
-            if (strMap[str] && strMap[str] == 1)
+            if (strMap[str] == 1)
                 indx++;
             if(indx==k) return str;
         }
