@@ -12,24 +12,21 @@ class Solution {
 public:
     vector<vector<int>> spiralMatrix(int m, int n, ListNode* head) {
         vector<vector<int>> arr(m,vector<int>(n,-1));
+        int directions[4][2] = {{0,1},{1,0},{0,-1},{-1,0}};
 
-        int left=0,right=n-1;
-        int up=0,down=m-1;
-        
-        while(down>=up && right>=left && head!=NULL){
-
-            for(int i=left;i<=right && head!=NULL;i++,head=head->next)    
-                arr[up][i] = head->val;
-            for(int i=up+1;i<=down-1 && head!=NULL;i++,head=head->next)   
-                arr[i][right] = head->val;
-            for(int i=right;i>=left && head!=NULL;i--,head=head->next)
-                arr[down][i] = head->val;
-            for(int i=down-1;i>=up+1 && head!=NULL;i--,head=head->next)
-                arr[i][left] = head->val;
-            up++;left++;
-            down--;right--;
+        int i = 0 , j = 0, di = 0;
+        while(head != NULL){
+            arr[i][j] = head->val;
+            int _i,_j;
+            _i = directions[di][0] + i;
+            _j = directions[di][1] + j;
+            if (_j < 0  || _i < 0 || _i>=m || _j >=n || arr[_i][_j]!=-1){
+                di = (di+1)%4;
+            }
+            i = directions[di][0] + i;
+            j = directions[di][1] + j;
+            head = head->next;
         }
-
         return arr;
     }
 };
