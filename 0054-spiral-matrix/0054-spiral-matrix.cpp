@@ -11,20 +11,17 @@ public:
 
         for (int count = 0 ; count < m*n; count++){
             if (i < U || j < L || i > D || j > R){
+                i -= directions[di][0];
+                j -= directions[di][1];
                 di = (di+1)%4;
-                i += directions[di][0];
-                j += directions[di][1];
-                continue;
                 count --;
+            }else{
+                arr.push_back(matrix[i][j]);
             }
-            arr.push_back(matrix[i][j]);
-            int _i = i + directions[di][0];
-            int _j = j + directions[di][1];
-            if (_i < U || _j < L || _i > D || _j > R){
-                di = (di+1)%4;
-            }
+            
             i += directions[di][0];
             j += directions[di][1];
+
             if (i==cycle_detect.first && j == cycle_detect.second){
                 i++; j++;L++;R--;U++;D--;
                 cycle_detect.first = i;
