@@ -1,5 +1,9 @@
 class Solution {
 public:
+    pair<int,int> getDirection(int n){
+        return make_pair(n%2 ? 2-n : 0,n%2 ? 0 : 1-n);
+        //int directions[4][2] = {{0,1},{1,0},{0,-1},{-1,0}};
+    }
     vector<int> spiralOrder(vector<vector<int>>& matrix) {
         vector <int> arr;
         int m = matrix.size(), n = matrix[0].size();
@@ -10,17 +14,19 @@ public:
         pair <int,int> cycle_detect = make_pair(0,0);
 
         for (int count = 0 ; count < m*n; count++){
+            pair <int,int> direction = getDirection(di);
             if (i < U || j < L || i > D || j > R){
-                i -= directions[di][0];
-                j -= directions[di][1];
+                i -= direction.first;
+                j -= direction.second;
                 di = (di+1)%4;
+                direction = getDirection(di);
                 count --;
             }else{
                 arr.push_back(matrix[i][j]);
             }
             
-            i += directions[di][0];
-            j += directions[di][1];
+            i += direction.first;
+            j += direction.second;
 
             if (i==cycle_detect.first && j == cycle_detect.second){
                 i++; j++;L++;R--;U++;D--;
