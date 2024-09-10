@@ -13,7 +13,7 @@ public:
     int gcd(int a , int b){
         int big = max(a,b),small = min(a,b);
         if (big%small == 0)   return small;
-        return gcd(big%small,small);
+        return gcd(big-small,small);
     }
     ListNode* insertGreatestCommonDivisors(ListNode* head) {
         for (ListNode* it = head;  it->next != NULL;it = it->next->next){
