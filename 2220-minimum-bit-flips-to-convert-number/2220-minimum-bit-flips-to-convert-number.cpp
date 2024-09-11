@@ -2,7 +2,7 @@
 class Solution {
 public:
     void updateBitArr(int n,int* arr){
-        for(int i=0;n;n=n/2,i++)
+        for(int i=0;n;n=n>>1,i++)
             arr[i] ^=  n%2;
     }
     int count(int* arr){
