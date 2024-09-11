@@ -1,15 +1,12 @@
 BIT_LEN = 32
 class Solution:
-    def match_bits(self,n,bit_arr):
-        i = 0
+    @staticmethod
+    def count_set_bits(n):
+        count = 0
         while n:
-            bit_arr[i] ^= n%2
+            count += n%2
             n = n>>1
-            i+=1
-    
+        return count
     def minBitFlips(self, start: int, goal: int) -> int:
-        bit_arr = [0] * BIT_LEN
-        self.match_bits(start,bit_arr)
-        self.match_bits(goal,bit_arr)
-        return bit_arr.count(1)
+        return Solution.count_set_bits(start ^ goal)
         
