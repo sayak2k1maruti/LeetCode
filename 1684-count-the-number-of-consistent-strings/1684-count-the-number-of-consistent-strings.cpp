@@ -10,7 +10,7 @@ public:
             bool flag = true;
             for (auto c : word) 
                 if (! allowedChar[c-'a']) {flag = false;break;}
-            count += flag;
+            if (flag)   count++;
         }
         return count;
     }
