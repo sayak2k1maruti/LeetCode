@@ -16,7 +16,6 @@ public:
             wordsMap[getUniqueCharStr(word)]++;
         }
         for(auto it : wordsMap){
-            if (it.second)
                 pairsCount += it.second * (it.second - 1)/2;
         }
         return pairsCount;
