@@ -1,13 +1,15 @@
 class Solution {
 public:
-    int xor_arr(int start,int end,vector <int>& arr){
-        if(start == end)    return arr[start];
-        return arr[start] ^ xor_arr(start+1,end,arr);
-    }
     vector<int> xorQueries(vector<int>& arr, vector<vector<int>>& queries) {
         vector<int> result_arr(queries.size(),0);
-        for(int i = 0 ; i < queries.size();i++){
-            result_arr[i] = xor_arr(queries[i][0],queries[i][1],arr);
+        for(int i = 1; i < arr.size();i++){
+            arr[i] ^= arr[i-1];
+        }
+        int indx=0;
+        for(auto query: queries){
+            if (query[0] == 0)
+                result_arr[indx++] = arr[query[1]];
+            else    result_arr[indx++] = arr[query[1]] ^ arr[query[0]-1];
         }
         return result_arr;
     }
