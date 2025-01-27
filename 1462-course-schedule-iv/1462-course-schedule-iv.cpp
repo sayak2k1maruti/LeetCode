@@ -15,7 +15,6 @@ public:
         for(auto coursePair : prerequisites){
             preq[coursePair[0]].push_back(coursePair[1]);
         }
-        int indx=0;
         for(int i = 0 ; i < queries.size(); i++)    
             ans[i] = isRechable(preq,queries[i][0],queries[i][1],cache);
         return ans;
