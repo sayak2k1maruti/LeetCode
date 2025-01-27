@@ -1,7 +1,7 @@
 class Solution {
 public:
     bool isReachable(vector<set<int>> &preq,int a , int b,vector<vector<int>> &cache){
-        if(cache[a][b] != -1)   return (bool)cache[a][b];
+        if(cache[a][b] != -1)   return cache[a][b];
         if( preq[a].find(b) != preq[a].end())   return cache[a][b] = true;
         for(auto c : preq[a])
             if (isReachable(preq,c,b,cache))
