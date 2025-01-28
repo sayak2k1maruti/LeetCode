@@ -11,7 +11,6 @@ public:
                 catchMaxFish(grid,r,c-1) +
                 catchMaxFish(grid,r+1,c) +
                 catchMaxFish(grid,r-1,c) ;
-        //grid[r][c] = totalFish; // reverting back to original value after run
         return ans;
     }
     int findMaxFish(vector<vector<int>>& grid) {
