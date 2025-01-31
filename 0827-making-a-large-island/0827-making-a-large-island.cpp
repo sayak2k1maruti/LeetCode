@@ -1,6 +1,6 @@
 class Solution {
 public:
-    int areaOfIsLand(int x, int y,int n,vector<vector<int>>& grid){
+    /*int areaOfIsLand(int x, int y,int n,vector<vector<int>>& grid){
         if(x<0 || y < 0 || x>=n || y>=n)    return 0;
         if(grid[x][y]!=1)   return 0;
         grid[x][y] = -1;//i.e, visited
@@ -20,7 +20,7 @@ public:
     int getValueFromGrid(int x,int y,int n,vector<vector<int>> &grid){
         if(x>=n || y>=n || x < 0 || y < 0)  return 0;
         return grid[x][y];
-    }
+    }*/
     bool isAllOne(int n,vector<vector<int>> &grid){
         for (int i = 0 ; i < n; i++)
             for(int j = 0 ; j < n ; j++)
@@ -31,7 +31,7 @@ public:
         int dirs[4][2] = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
         int n = grid.size();
         int ans = INT_MIN;
-        int clusterNumber = 2;
+        int clusterNumber = 2; //starting cluster name from 2 to avoid confusion with 1
         //unordered_map<int,int>clusterAreaMap;
         vector<int> clusterAreaMap(n*n+3,0);
         if (isAllOne(n,grid)) return n*n;
