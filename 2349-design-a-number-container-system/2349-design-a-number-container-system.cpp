@@ -7,19 +7,13 @@ public:
     }
     
     void change(int index, int number) {
-        int oldNumber = 0;
-        if (nums.find(index)!=nums.end())   oldNumber=nums[index];
+        if (nums.count(index))   indexMap[nums[index]].erase(index);
         nums[index] = number;
-        if(oldNumber && indexMap.find(oldNumber) != indexMap.end()){
-            indexMap[oldNumber].erase(index);
-        }
-        if(indexMap.find(number) != indexMap.end()) indexMap[number].insert(index);
-        else {indexMap[number] = {index};}
+        indexMap[number].insert(index);
     }
     
     int find(int number) {
-        if(indexMap.find(number) != indexMap.end()) return indexMap[number].empty()?-1 : *indexMap[number].begin();
-        return -1;
+        return indexMap[number].empty()?-1 : *indexMap[number].begin();
     }
 };
 
