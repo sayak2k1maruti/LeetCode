@@ -7,8 +7,7 @@ public:
     }
     
     void change(int index, int number) {
-        int oldNumber = 0;
-        if (nums.find(index)!=nums.end())   oldNumber=nums[index];
+        int oldNumber=nums[index];
         nums[index] = number;
         if(oldNumber && indexMap.find(oldNumber) != indexMap.end()){
             indexMap[oldNumber].erase(index);
@@ -18,7 +17,7 @@ public:
     }
     
     int find(int number) {
-        if(indexMap.find(number) != indexMap.end()) return indexMap[number].empty()?-1 : *indexMap[number].begin();
+        if(indexMap.count(number)) return indexMap[number].empty()?-1 : *indexMap[number].begin();
         return -1;
     }
 };
