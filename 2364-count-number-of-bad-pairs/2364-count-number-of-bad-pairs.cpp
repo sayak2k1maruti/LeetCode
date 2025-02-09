@@ -3,7 +3,7 @@ public:
     long long countBadPairs(vector<int>& nums) {
         long long int n = nums.size();
         map<int,long long int> nums1; 
-        for(int i = 0 ; i < n ; i++){
+        for(auto i = 0 ; i < n ; i++){
             nums1[nums[i]-i]++;
         }
         long long int goodPairs = 0;
