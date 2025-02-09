@@ -2,7 +2,7 @@ class Solution {
 public:
     long long countBadPairs(vector<int>& nums) {
         long long int n = nums.size();
-        map<int,long long int> nums1; 
+        unordered_map<int,long long int> nums1; 
         for(auto i = 0 ; i < n ; i++){
             nums1[nums[i]-i]++;
         }
