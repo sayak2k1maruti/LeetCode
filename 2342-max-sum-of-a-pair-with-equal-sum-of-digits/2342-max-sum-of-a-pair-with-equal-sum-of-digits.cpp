@@ -7,7 +7,7 @@ public:
         }
         return sum;
     }
-    int sumOffTwoLargestNumber(vector <int> &nums){
+    int sumOffTwoLargestNumber(deque <int> &nums){
         int max = -1,secondMax = -1;
         for(auto &n : nums){
             if(n > max){
@@ -20,7 +20,7 @@ public:
         return max+secondMax;
     }
     int maximumSum(vector<int>& nums) {
-        unordered_map <int,vector<int>> sumOfDigitMap;
+        unordered_map <int,deque<int>> sumOfDigitMap;
         int sum = -1;
         for(auto n : nums)  sumOfDigitMap[sumOfDigit(n)].push_back(n);
         for(auto &[key,arr] : sumOfDigitMap){
