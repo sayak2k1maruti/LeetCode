@@ -8,7 +8,6 @@ public:
         return sum;
     }
     int sumOffTwoLargestNumber(vector <int> &nums){
-        if(nums.size() < 2) return -1;
         int max = -1,secondMax = -1;
         for(auto &n : nums){
             if(n > max){
@@ -25,7 +24,7 @@ public:
         int sum = -1;
         for(auto n : nums)  sumOfDigitMap[sumOfDigit(n)].push_back(n);
         for(auto &[key,arr] : sumOfDigitMap){
-            sum = max(sum,sumOffTwoLargestNumber(arr));
+            if (arr.size() >= 2)    sum = max(sum,sumOffTwoLargestNumber(arr));
         }
         return sum;
     }
