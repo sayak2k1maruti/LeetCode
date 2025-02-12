@@ -8,23 +8,25 @@ public:
         }
         return sum;
     }
-    int findMaxSum(vector <int> &nums){
-        int n = nums.size();
-        int sum = -1;
-        if(n<2) return -1;
-        for(int i = 0; i < n-1; i ++){
-            for (int j = i+1 ; j < n ; j ++){
-                sum = max(sum,nums[i] + nums[j]);
+    int sumOffTwoLargestNumber(vector <int> &nums){
+        if(nums.size() < 2) return -1;
+        int max = -1,secondMax = -1;
+        for(auto &n : nums){
+            if(n > max){
+                secondMax = max;
+                max = n;
+            }else if(n > secondMax){
+                secondMax = n;
             }
         }
-        return sum;
+        return max+secondMax;
     }
     int maximumSum(vector<int>& nums) {
         unordered_map <int,vector<int>> sumOfDigitMap;
         int sum = -1;
         for(auto n : nums)  sumOfDigitMap[sumOfDigit(n)].push_back(n);
         for(auto &[key,arr] : sumOfDigitMap){
-            sum = max(sum,findMaxSum(arr));
+            sum = max(sum,sumOffTwoLargestNumber(arr));
         }
         return sum;
     }
