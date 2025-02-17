@@ -1,19 +1,19 @@
 class Solution {
 public:
-    unordered_map<char,int> freqCount(string tiles){
-        unordered_map<char,int> mp;
-        for(auto &c : tiles) mp[c]++;
-        return mp;
+    void freqCount(string tiles,int* mp){
+        //unordered_map<char,int> mp;
+        for(auto &c : tiles) mp[c-'A']++;
     }
     int fact(int n){
         int ans = 1;
         for(;n>1;n--)   ans*=n;
         return ans;
     }
-    int permutations(unordered_map<char,int> &mp){
+    int permutations(int* mp){
         int numerator = 0;
         int denominator = 1;
-        for(auto &[key,count] : mp){
+        for(int i='A';i<='Z';i++){
+            int count = mp[i-'A'];
             if(count){
                 numerator += count;
                 denominator *= fact(count);
@@ -21,19 +21,21 @@ public:
         }
         return fact(numerator)/denominator;
     }
-    int partitions(unordered_map<char,int> &mp,char c){
+    int partitions(int* mp,char c){
         if(c > 'Z') return permutations(mp);
-        if(! mp[c]) return partitions(mp,c+1);
+        if(! mp[c-'A']) return partitions(mp,c+1);
         
-        int possibilities = 0,mem = mp[c];
+        int possibilities = 0,mem = mp[c-'A'];
         for(int i = 0; i <= mem; i++){
-            mp[c] = i;
+            mp[c-'A'] = i;
             possibilities += partitions(mp,c+1);
         }
         return possibilities;
     }
     int numTilePossibilities(string tiles) {
-        unordered_map<char,int> mp = freqCount(tiles);
+        //unordered_map<char,int> mp = freqCount(tiles);
+        int mp[26] = {0};
+        freqCount(tiles,mp);
         return partitions(mp,'A') - 1;//substracting 1 to handle empty seq
     }
 };
