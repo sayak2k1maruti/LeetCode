@@ -2,7 +2,7 @@ class Solution {
 public:
     string backtrack(string pattren,int index,string num,bool *usedDigit){
         if(index > pattren.length())    return num;
-        cout << num << endl;
+        //cout << num << endl;
         for(int digit = 1;digit <= 9; digit ++){
             if(usedDigit[digit])    continue;
             if ((index!=0) && (pattren[index-1] == 'I') && (num[index-1]-'0' > digit)) continue;
