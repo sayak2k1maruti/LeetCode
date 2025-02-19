@@ -2,11 +2,14 @@ char arr[] = {'a','b','c'};
 class Solution {
 public:
     
-    string generate(string s,int n,int &count,int &k){
+    string generate(string s,int n,int &count,int k){
         string x;
-        if(s.length()==n)    {count++;}
-        if(s.length()>n)    return "";
-        if(count == k)  return s;
+        if (s.length() == n) {
+            count++;
+            if (count == k) return s;
+            return "";
+        }
+
         for(int i = 0 ;i < 3 ;i++){
             if((s.length()==0) || (arr[i] != s[s.length()-1]))
             {x = generate(s+arr[i],n,count,k);
