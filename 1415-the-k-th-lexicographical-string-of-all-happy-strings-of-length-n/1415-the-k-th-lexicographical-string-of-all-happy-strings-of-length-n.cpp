@@ -3,12 +3,13 @@ class Solution {
 public:
     
     string generate(string s,int n,int &count,int &k){
+        string x;
         if(s.length()==n)    {count++;}
         if(s.length()>n)    return "";
         if(count == k)  return s;
         for(int i = 0 ;i < 3 ;i++){
             if((s.length()==0) || (arr[i] != s[s.length()-1]))
-            {string x = generate(s+arr[i],n,count,k);
+            {x = generate(s+arr[i],n,count,k);
             if(x.length()) return x;}
         }
         return "";
