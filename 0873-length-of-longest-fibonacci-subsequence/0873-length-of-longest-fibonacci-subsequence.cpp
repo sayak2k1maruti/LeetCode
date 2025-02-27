@@ -6,7 +6,7 @@ public:
         return mp;
     }
     int flength(unordered_set <int> & st,int a, int b){
-        if(st.count(a+b)){
+        if(st.find(a+b)!= st.end()){
             return 1 + flength(st,b,a+b);
         }
         return 0;
