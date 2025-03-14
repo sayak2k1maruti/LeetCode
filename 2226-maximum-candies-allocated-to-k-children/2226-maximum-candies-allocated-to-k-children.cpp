@@ -21,11 +21,11 @@ public:
         //     if(isPossible(candies,n,k)) return n;
         // }
         //converting above search to binary search
-        int left = 1,right=totalC/k;
-        int result = 0;
+        long long left = 1,right=totalC/k;
+        long long result = 0;
         
         while (left <= right) {
-            int mid = left + (right - left) / 2;
+            long long mid = left + (right - left) / 2;
             if (isPossible(candies, mid, k)) {
                 result = mid;
                 left = mid + 1;
