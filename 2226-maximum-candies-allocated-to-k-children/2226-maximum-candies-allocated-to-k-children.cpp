@@ -1,6 +1,6 @@
 class Solution {
 public:
-    bool isPossible(vector<int> &candies, int n,long long children){
+    bool isPossible(vector<int> &candies, long long n,long long children){
         for(auto &i : candies){
             children -= i/n;
             if(children <= 0)   return true;
