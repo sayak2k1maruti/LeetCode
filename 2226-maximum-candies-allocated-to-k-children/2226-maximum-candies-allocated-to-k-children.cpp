@@ -15,17 +15,17 @@ public:
         return ans;
     }
     int maximumCandies(vector<int>& candies, long long k) {
-        //unsigned long long totalC = sum(candies);
-        //if(totalC < k)  return 0;
+        unsigned long long totalC = sum(candies);
+        if(totalC < k)  return 0;
         // for(int n=totalC/k;n>0;n--){
         //     if(isPossible(candies,n,k)) return n;
         // }
         //converting above search to binary search
-        int left = 1,right=*max_element(candies.begin(),candies.end());
-        int result = 0;
+        long long left = 1,right=totalC/k;
+        long long result = 0;
         
         while (left <= right) {
-            int mid = left + (right - left) / 2;
+            long long mid = left + (right - left) / 2;
             if (isPossible(candies, mid, k)) {
                 result = mid;
                 left = mid + 1;
