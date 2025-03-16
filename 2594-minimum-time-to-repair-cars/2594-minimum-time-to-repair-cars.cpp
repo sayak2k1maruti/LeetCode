@@ -6,7 +6,8 @@ public:
         // n < sqrt(time/r)
         int rqCars = 0;
         for(auto &r : ranks){
-            rqCars += sqrt(time/r);
+            int i = sqrt(time/r)
+            rqCars += i;
             if(rqCars >= cars)   return true;
         }
         return rqCars>=cars;
