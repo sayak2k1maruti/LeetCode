@@ -4,10 +4,10 @@ public:
         // r*n^2 < time
         // n^2 < time/r
         // n < sqrt(time/r)
-        long long rqCars = 0;
+        int rqCars = 0;
         for(auto &r : ranks){
             rqCars += sqrt(time/r);
-            //if(rqCars >= cars)   return true;
+            if(rqCars >= cars)   return true;
         }
         return rqCars>=cars;
     }
