@@ -1,6 +1,6 @@
 class Solution {
 public:
-    bool canBeRepaired(vector<int> & ranks,long long time,int cars){
+    bool canBeRepaired(vector<int> & ranks,long long &time,int cars){
         // r*n^2 < time
         // n^2 < time/r
         // n < sqrt(time/r)
