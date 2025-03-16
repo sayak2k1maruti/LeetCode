@@ -11,8 +11,10 @@ public:
         }
         return rqCars>=cars;
     }
+    
     long long repairCars(vector<int>& ranks, int cars) {
-        long long time = (long long)ranks[0] * (long long)cars * (long long)cars;
+        int minRank = *min_element(ranks.begin(),ranks.end());
+        long long time = (long long)minRank * (long long)cars * (long long)cars;
         long long startT = 1,endT = time, ans = 0;
         while(startT <= endT){
             cout << startT << " " << endT << endl;
