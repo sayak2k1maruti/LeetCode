@@ -17,7 +17,7 @@ public:
         long long time = (long long)minRank * (long long)cars * (long long)cars;
         long long startT = 1,endT = time, ans = 0;
         while(startT <= endT){
-            cout << startT << " " << endT << endl;
+            // cout << startT << " " << endT << endl;
             long long mid = startT + (endT - startT)/2;
             if(canBeRepaired(ranks,mid,cars)){
                 endT = mid-1;
