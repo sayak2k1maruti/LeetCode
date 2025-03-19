@@ -8,7 +8,7 @@ public:
         for (int i = 0 ; i < nums.size() ; i++ ){
             if (nums[i]) continue;
             if(i+2 >= nums.size())  return -1;
-            for(int z = 0 ; z < 3; z++) invrt(nums[i+z]);
+            for(int z = 1 ; z < 3; z++) invrt(nums[i+z]);
             count++;
         }
         return count;
