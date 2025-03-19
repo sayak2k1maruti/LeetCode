@@ -1,7 +1,7 @@
 class Solution {
 public:
     void invrt(int &i){
-        i = (!i);return;
+        i ^= 1; return;
     }
     int minOperations(vector<int>& nums) {
         int count = 0,n = nums.size();
