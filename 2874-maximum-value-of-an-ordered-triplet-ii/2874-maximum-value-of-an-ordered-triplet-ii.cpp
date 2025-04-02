@@ -4,7 +4,7 @@ public:
         int n = nums.size();
         long long maxTriplet = 0;
 
-        vector<long long> right_max(n,0);
+        vector<int> right_max(n,0);
 
         int temp = nums[n-1];
         for(int i = n-1 ; i >= 0 ; i--){
@@ -13,7 +13,7 @@ public:
         }
         int left_max = nums[0];
         for(int j = 1; j < n-1 ; j++){
-            maxTriplet = max(maxTriplet,(left_max - nums[j]) * right_max[j]);
+            maxTriplet = max(maxTriplet,(long long)(left_max - nums[j]) * (long long)right_max[j]);
             left_max = max(left_max,nums[j]);
         }
         return maxTriplet;
