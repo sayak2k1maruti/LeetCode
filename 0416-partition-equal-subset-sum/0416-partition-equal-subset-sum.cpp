@@ -9,9 +9,8 @@ public:
         totalSums[0] = true;
         for(auto &n : nums){
             for(int i = hsum ; i >= n ; i--){
-                if(totalSums[i-n]){
-                    totalSums[i] = true;
-                }
+                totalSums[i] = totalSums[i]||totalSums[i-n];
+                
                 if(totalSums[hsum])  return true;
             }
         }
