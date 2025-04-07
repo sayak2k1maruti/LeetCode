@@ -1,32 +1,21 @@
 class Solution {
 public:
-    bool findSum(vector<int>& nums,int n,int i,int sum,int** cache){
-        
-        if(sum < 0) return false;
-        if(i >= n)    return false;
-
-        if(cache[i][sum] != -1)   return cache[i][sum];
-        if(sum==0)  return cache[i][0] = true;
-
-        return cache[i][sum] = findSum(nums,n,i+1,sum-nums[i],cache) || findSum(nums,n,i+1,sum,cache); 
-    }
     bool canPartition(vector<int>& nums) {
-       int sum = 0,  n = nums.size();
-       for(auto &i : nums)  sum += i;
-       if(sum & 1) return false;
-
-       int **cache;
-       cache = new int *[n+1];
-       for(int i = 0 ; i <= n; i++){
-           cache[i] = new int[sum/2 + 1];
-           for(int j = 0 ; j <= sum/2 ; j ++){
-                cache[i][j] = -1;
-           }
-       }
-       for(int i = 0 ; i <= n; i++)
-            for(int j = 0 ; j <= sum/2 ; j++)   
-                cache[i][j] = -1;
-
-       return findSum(nums,n,0,sum/2,cache);
+        set<int> allSums;
+        int tsum = 0;
+        for(auto &i : nums) tsum += i;
+        int halfSum = tsum/2;
+        if(tsum & 1) return false;
+        allSums.insert(0);
+        for(auto &i : nums){
+            set <int> tempAllSums;
+            for(auto &n : allSums){
+                tempAllSums.insert(n);
+                tempAllSums.insert(n + i);
+            }
+            allSums = tempAllSums;
+            if(allSums.find(halfSum) != allSums.end())  return true;
+        }
+        return allSums.find(halfSum) != allSums.end();
     }
 };
