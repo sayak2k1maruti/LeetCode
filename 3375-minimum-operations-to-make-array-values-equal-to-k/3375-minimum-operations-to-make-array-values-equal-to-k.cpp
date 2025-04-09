@@ -2,17 +2,15 @@
 class Solution {
 public:
     int minOperations(vector<int>& nums, int k) {
-        unordered_map<int,int> mp;
-        for(auto &n : nums) mp[n]++;
-        if(mp.size() == 1){
-            if(nums[0] < k) return -1;
-            return nums[0] == k ? 0 : 1;
-        }
-        int minOperation = 0;
-        for(auto &[n,count] : mp){
+        bool arr[MAX+1];
+        int distinct=0;
+        for(auto &n : nums){
             if(n < k)   return -1;
-            if(n > k) minOperation ++;
+            if((n > k) && (! arr[n])){
+                arr[n] = true;
+                distinct++;
+            }
         }
-        return minOperation ? minOperation : -1;
+        return distinct;
     }
 };
