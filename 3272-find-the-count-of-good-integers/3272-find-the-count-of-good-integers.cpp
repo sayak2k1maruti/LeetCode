@@ -69,11 +69,7 @@ public:
     }
 
     long long countGoodIntegers(int n, int k) {
-        ll start = pow(10,n-1);
-        ll end = pow(10,n);
-        //cout << start << " " << end << " ";
         ll count = 0;
-        ll mul = ceil((float)start/(float)k);
 
         unordered_set<string> usedNumComb;
 
