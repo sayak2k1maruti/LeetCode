@@ -71,12 +71,11 @@ public:
     long long countGoodIntegers(int n, int k) {
         ll count = 0;
 
-        unordered_set<string> usedNumComb;
+        set<string> usedNumComb;
 
         vector<ll> allPallindroms = allPallindromeCombination(n,k);
 
         for(auto &num : allPallindroms){
-            //cout << num << end
 
 
             int digitMap[10] = {0};
