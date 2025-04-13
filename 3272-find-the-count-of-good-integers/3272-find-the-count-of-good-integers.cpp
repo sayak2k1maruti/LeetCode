@@ -19,9 +19,9 @@ public:
         }
         return count;
     }
-    void allCombination(set<string>& combinations,int n,string &temp){
+    void allCombination(vector<string>& combinations,int n,string &temp){
         if(temp.size() == n) {
-            combinations.insert(temp);
+            combinations.push_back(temp);
             return;
         }
         for(char c='0'; c <= '9'; c++){
@@ -41,7 +41,7 @@ public:
 
     vector<ll> allPallindromeCombination(int n,int k){
         int half = ceil((float)n/(float)2);
-        set<string> allCombos;
+        vector<string> allCombos;
         vector<ll> allCombsNumber;
         string temp;
         allCombination(allCombos,half,temp);
