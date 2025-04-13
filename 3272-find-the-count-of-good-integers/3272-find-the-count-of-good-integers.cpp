@@ -50,7 +50,7 @@ public:
                 s += s[i];
             }
             if(s[0] != '0'){
-                ll num = s2i(s);
+                ll num = stoll(s);
                 if(num % k == 0)   allCombsNumber.push_back(num); 
             }
             
