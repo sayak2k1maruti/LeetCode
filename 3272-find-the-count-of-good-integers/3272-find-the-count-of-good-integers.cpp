@@ -39,23 +39,40 @@ public:
         return ans;
     }
 
+    // vector<ll> allPallindromeCombination(int n,int k){
+    //     int half = ceil((float)n/(float)2);
+    //     vector<string> allCombos;
+    //     vector<ll> allCombsNumber;
+    //     string temp;
+    //     allCombination(allCombos,half,temp);
+    //     for(auto s : allCombos){
+    //         for(int i = n/2-1; i >=0 ; i--){
+    //             s += s[i];
+    //         }
+    //         if(s[0] != '0'){
+    //             ll num = s2i(s);
+    //             if(num % k == 0)   allCombsNumber.push_back(num); 
+    //         }
+            
+    //     }
+    //     return allCombsNumber;
+    // }
+
     vector<ll> allPallindromeCombination(int n,int k){
         int half = ceil((float)n/(float)2);
-        vector<string> allCombos;
-        vector<ll> allCombsNumber;
-        string temp;
-        allCombination(allCombos,half,temp);
-        for(auto s : allCombos){
-            for(int i = n/2-1; i >=0 ; i--){
-                s += s[i];
+        ll start = pow(10,half-1);
+        ll end = pow(10,half) - 1;
+        vector <ll> allPallindromes;
+        for(ll i = start; i <= end; i++){
+            ll num = i;
+            ll temp = i;
+            if(n&1) temp = i/10;
+            for(;temp;temp/=10){
+                num = num*10 + temp%10;
             }
-            if(s[0] != '0'){
-                ll num = stoll(s);
-                if(num % k == 0)   allCombsNumber.push_back(num); 
-            }
-            
+            if(num % k == 0)    allPallindromes.push_back(num);
         }
-        return allCombsNumber;
+        return allPallindromes;
     }
 
     string makeHash(int* digitMap){
