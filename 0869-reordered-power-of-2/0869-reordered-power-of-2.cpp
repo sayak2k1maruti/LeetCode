@@ -4,19 +4,19 @@ public:
         return ((n & (~(n-1))) == n);
     }
     void allPermuattion(int index, string &s,bool &flag) {
-            if(! flag){
-                if (index == s.size()) {
-                    if ((s[0] != '0')){
-                        if(isPowerofTwo(str2int(s)))    
-                            flag = true;
-                    }
+        if(! flag){
+            if (index == s.size()) {
+                if ((s[0] != '0')){
+                    if(isPowerofTwo(str2int(s)))    
+                        flag = true;
+                }
                 return;
+            }   
+            for (int i = index; i < s.size(); i++) {
+                swap(s[index], s[i]);
+                allPermuattion(index + 1, s,flag);
+                swap(s[index], s[i]);
             }
-        }
-        for (int i = index; i < s.size(); i++) {
-            swap(s[index], s[i]);
-            allPermuattion(index + 1, s,flag);
-            swap(s[index], s[i]);
         }
     }
     string int2str(int n){
