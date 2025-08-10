@@ -10,7 +10,7 @@ public:
                         if(isPowerofTwo(str2int(s)))    
                             flag = true;
                     }
-            return;
+                return;
             }
         }
         for (int i = index; i < s.size(); i++) {
@@ -23,7 +23,6 @@ public:
         string ans = "";
         for(;n != 0; n/=10){
             ans = char('0' + (n % 10)) + ans;
-            //cout << ans <<' ' <<(char)(n%10+'0') << endl;
         }
         return ans;
     }
@@ -37,13 +36,10 @@ public:
     bool reorderedPowerOf2(int n) {
         string os = int2str(n);
         bool flag = false;
-        //cout << os << endl;
         if(os.length() < 2){
             return true;
         }
         allPermuattion(0,os,flag);
-        //for(auto s :allPermute) cout << s << endl;
-        
         return flag;
     }
 };
