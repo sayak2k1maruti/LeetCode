@@ -3,14 +3,19 @@ public:
     bool isPowerofTwo(int n) {
         return ((n & (~(n-1))) == n);
     }
-    void allPermuattion(int index, string &s,vector<string> &ans) {
-        if (index == s.size()) {
-            if (s[0] != '0') ans.push_back(s);
+    void allPermuattion(int index, string &s,bool &flag) {
+            if(! flag){
+                if (index == s.size()) {
+                    if ((s[0] != '0')){
+                        if(isPowerofTwo(str2int(s)))    
+                            flag = true;
+                    }
             return;
+            }
         }
         for (int i = index; i < s.size(); i++) {
             swap(s[index], s[i]);
-            allPermuattion(index + 1, s, ans);
+            allPermuattion(index + 1, s,flag);
             swap(s[index], s[i]);
         }
     }
@@ -30,18 +35,15 @@ public:
         return n;
     }
     bool reorderedPowerOf2(int n) {
-        vector <string> allPermute;
         string os = int2str(n);
+        bool flag = false;
         //cout << os << endl;
         if(os.length() < 2){
             return true;
         }
-        allPermuattion(0,os,allPermute);
+        allPermuattion(0,os,flag);
         //for(auto s :allPermute) cout << s << endl;
-        for (auto sn : allPermute){
-            if (isPowerofTwo(str2int(sn)))
-                return true;
-        }
-        return false;
+        
+        return flag;
     }
 };
