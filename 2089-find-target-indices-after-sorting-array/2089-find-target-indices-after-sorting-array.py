@@ -7,8 +7,6 @@ class Solution:
                 smaller += 1
             elif n == target:
                 count += 1  
-        if count:
-            return [smaller + i for i in range(count)]
-        return []
+        return list(range(smaller,smaller+count))
         
         
