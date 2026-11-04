@@ -1,23 +1,14 @@
 class Solution:
     def canJump(self, nums: list[int]) -> bool:
+        farthest = 0
         n = len(nums)
-        possible = [None]*n
-        def is_possible(start):
-            if nums[start] + start >= n-1:
+        for i in range(n):
+            farthest = max(farthest, i + nums[i])
+            if farthest >= n-1:
                 return True
-            if possible[start] is not None:
-                return possible[start]
-            if nums[start] == 0:
-                possible[start] =  False
+            if farthest == i:
                 return False
-            for i in range(start+1,nums[start]+start+1):
-                if is_possible(i):
-                    possible[start] =  True
-                    return True
-            possible[start] = False
-            return False
-        
-        return is_possible(0)
+
             
 
         
