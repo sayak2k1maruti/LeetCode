@@ -4,7 +4,7 @@ class Solution:
         Do not return anything, modify nums in-place instead.
         """
         n = len(nums)
-        k = k%n
+        k = k%n if k >n else k
         def reverse(start,end):
             while start < end:
                 temp = nums[start]
