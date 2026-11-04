@@ -8,6 +8,7 @@ class Solution:
                 return True
             if farthest == i:
                 return False
+        return True
 
             
 
