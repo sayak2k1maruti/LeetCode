@@ -1,4 +1,3 @@
-from collections import Counter
 class Solution:
     def majorityElement(self, nums: list[int]) -> int:
         majority =nums[0]
