@@ -1,30 +1,25 @@
-from collections import deque 
 class Solution:
     def jump(self, nums: list[int]) -> int:
-        if len(nums) <= 1:
-            return 0
-        q = deque()
-        q.append(0)
-        q.append(None)
-        depth = 0
+        jump=0
         n = len(nums)
-        visited = set()
-        while q:
-            depth += 1
-            while True:
-                index = q.popleft()
-                if index is None:
+        end = nums[0]
+        farest = end
+        if n==1:
+            return 0
+        for i in range(n-1):
+            farest = max(farest,nums[i]+i)
+            if i==end:
+                jump +=1
+                end = farest
+                if end >= n-1:
                     break
-                if index + nums[index] >= n-1:
-                    return depth
-                for i in range(index+1,index+1+nums[index]):
-                    if i not in visited:
-                        q.append(i)
-                        visited.add(i)
-            if q:
-                q.append(None)
-            
-        return depth
-            
+        if end>=n-1:
+            jump+=1
+        return jump
+
+
+
+
         
+
         
