@@ -8,7 +8,7 @@ class Solution:
             if start<=failed:
                 continue
             tank = 0
-            for k in range(n):
+            for k in range(n-start):
                 i = (start + k) % n
                 tank += gas[i] - cost[i]
                 if tank < 0:
