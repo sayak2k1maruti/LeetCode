@@ -1,26 +1,32 @@
-MAX = 10000
 import random
 class RandomizedSet:
 
     def __init__(self):
-        self.arr = set()
-        
+        self.arr = []
+        self.map = {}
+        self.index = 0
 
     def insert(self, val: int) -> bool:
-        if val not in self.arr:
-            self.arr.add(val)
-            return True
-        return False    
+        if val in self.map:
+            return False
+        self.arr.append(val)
+        self.map[val]=self.index
+        self.index += 1
 
     def remove(self, val: int) -> bool:
-        if val not in self.arr:
+        if val not in self.map:
             return False
-        self.arr.remove(val)
+        last = self.arr[-1]
+        self.arr[self.map[val]] = last
+        self.map[last] = self.map[val]
+        self.arr.pop()
+        del self.map[val]
+        self.index -= 1
         return True
         
 
     def getRandom(self) -> int:
-        return random.choice(tuple(self.arr))
+        return self.arr[random.randint(0,self.index-1)]
 
         
 
