@@ -7,7 +7,6 @@ class Solution:
             maxH = max(maxH,height[i])
             rtl[i] = maxH
 
-        print(rtl)
         maxH = 0
         water = 0
 
