@@ -10,11 +10,15 @@ class Solution:
             'M' : 1000
         }
         num = 0
-        for i in range(len(s)):
-            digit = values[s[i]]
-            if i<len(s)-1 and values[s[i]] < values[s[i+1]]:
-                digit  *= -1
-            num += digit
-        return num
+        # for i in range(len(s)):
+        #     digit = values[s[i]]
+        #     if i<len(s)-1 and values[s[i]] < values[s[i+1]]:
+        #         digit  *= -1
+        #     num += digit
+        # return num
+        return sum(
+            -values[s[i]] if values[s[i]] < values[s[i+1]] else values[s[i]]
+            for i in range(len(s)-1)
+        ) + values[s[len(s)-1]]
 
 # 1000 - 100 + 1000 - 10 + 100 - 1 + 5
