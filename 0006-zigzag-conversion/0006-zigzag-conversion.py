@@ -17,5 +17,3 @@ class Solution:
                         ans.append(s[j + chunk - 2 * i ])
                 j += chunk
         return ''.join(ans)
-
-
