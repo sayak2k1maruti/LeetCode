@@ -13,7 +13,7 @@ class Solution:
         for i in range(len(s)):
             digit = values[s[i]]
             if i<len(s)-1 and values[s[i]] < values[s[i+1]]:
-                    digit  *= -1
+                digit  *= -1
             num += digit
         return num
 
