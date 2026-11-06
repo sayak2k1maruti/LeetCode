@@ -1,3 +1,3 @@
 class Solution:
     def reverseWords(self, s: str) -> str:
-        return " ".join(reversed([i for i in s.strip().split(' ') if i]))
+        return " ".join(reversed([i for i in s.split(' ') if i]))
