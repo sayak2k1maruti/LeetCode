@@ -1,7 +1,7 @@
 class Solution:
     def threeSum(self, nums: list[int]) -> list[list[int]]:
         def twoSum(i,j,target):
-            ans = set()
+            ans = []
             while i < j :
                 s = nums[i] + nums[j]
                 if s > target:
@@ -9,8 +9,11 @@ class Solution:
                 elif s < target:
                     i += 1
                 else:
-                    ans.add((nums[i],nums[j]))
+                    ans.append((nums[i],nums[j]))
                     i += 1
+                    j-=1
+                    while i < j and nums[i] == nums[i - 1]:   
+                            i += 1 #skip dups
             return ans
         nums.sort()
         ans = []
