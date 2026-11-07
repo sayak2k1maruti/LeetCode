@@ -2,8 +2,8 @@ class Solution:
     def isSubsequence(self, s: str, t: str) -> bool:
         nt = len(t)
         ns = len(s)
-        if nt == 0 and ns == 0:
-            return True
+        # if nt == 0 and ns == 0:
+        #     return True
         i,j = 0,0
         while j < ns and i < nt:
             if t[i] == s[j]:
