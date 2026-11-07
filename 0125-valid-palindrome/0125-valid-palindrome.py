@@ -3,13 +3,15 @@ class Solution:
         def check(c):
             if c >= 'a' and c <= 'z':
                 return True
+            elif c >= 'A' and c <= 'Z':
+                return True
             elif c >= '0' and c <= '9':
                 return True
             return False
 
         n = len(s)
         l,r = 0,n-1
-        s = s.lower()
+
         while l<r:
             if not check(s[l]):
                 l+= 1
