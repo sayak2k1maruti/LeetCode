@@ -15,6 +15,8 @@ class Solution:
         nums.sort()
         ans = set()
         for i in range(len(nums)-2):
+            if i > 0 and nums[i] == nums[i-1]:
+                continue
             for j,k in twoSum(i+1,len(nums)-1,-nums[i]):
                 ans.add((nums[i],nums[j],nums[k]))
         return list(ans)
