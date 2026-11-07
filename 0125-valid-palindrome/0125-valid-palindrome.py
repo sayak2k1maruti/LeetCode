@@ -1,22 +1,14 @@
 class Solution:
     def isPalindrome(self, s: str) -> bool:
-        def check(c):
-            if c >= 'a' and c <= 'z':
-                return True
-            elif c >= 'A' and c <= 'Z':
-                return True
-            elif c >= '0' and c <= '9':
-                return True
-            return False
 
         n = len(s)
         l,r = 0,n-1
 
         while l<r:
-            if not check(s[l]):
+            if not s[l].isalnum():
                 l+= 1
                 continue
-            elif not check(s[r]):
+            elif not s[r].isalnum():
                 r-=1
                 continue
             elif s[l].lower() != s[r].lower():
