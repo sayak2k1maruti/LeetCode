@@ -7,8 +7,6 @@ class Solution:
             if t[i] == s[j]:
                 j += 1
             i += 1
-        if j >= ns:
-            return True
-        return False
+        return j >= ns
 
         
