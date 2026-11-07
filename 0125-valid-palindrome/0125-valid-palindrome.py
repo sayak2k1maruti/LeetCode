@@ -17,7 +17,7 @@ class Solution:
             elif not check(s[r]):
                 r-=1
                 continue
-            elif s[l] != s[r]:
+            elif s[l].lower() != s[r].lower():
                 return False
             l+=1
             r-=1
