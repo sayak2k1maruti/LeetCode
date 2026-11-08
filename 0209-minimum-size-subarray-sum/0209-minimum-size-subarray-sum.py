@@ -9,13 +9,13 @@ class Solution:
                 j = i
                 csum = 0
                 continue
-            csum += nums[j]
-            if csum < target:
+            if csum + nums[j] < target:
+                csum += nums[j]
                 j+=1
                 continue
             ans = min(ans,j-i+1)
             csum -= nums[i]
-            csum -= nums[j]
+            # csum -= nums[j]
             i+=1
             
         return ans if ans <= n else 0
