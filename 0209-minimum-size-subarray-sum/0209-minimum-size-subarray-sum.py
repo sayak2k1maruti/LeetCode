@@ -6,7 +6,7 @@ class Solution:
         csum = 0
         for j in range(len(nums)):
             csum += nums[j]
-            while i <= j and csum>=target:
+            while csum>=target:
                 ans = min(ans,j-i+1)
                 csum -= nums[i]
                 i+=1
