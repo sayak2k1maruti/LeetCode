@@ -4,19 +4,13 @@ class Solution:
         i,j = 0,0
         ans = n+1
         csum = 0
-        while j<len(nums):
-            if i>j:
-                j = i
-                csum = 0
-                continue
-            if csum + nums[j] < target:
-                csum += nums[j]
-                j+=1
-                continue
-            ans = min(ans,j-i+1)
-            csum -= nums[i]
-            # csum -= nums[j]
-            i+=1
+        for j in range(len(nums)):
+            csum += nums[j]
+            while i <= j and csum>=target:
+                ans = min(ans,j-i+1)
+                csum -= nums[i]
+                i+=1
+                
             
         return ans if ans <= n else 0
 
