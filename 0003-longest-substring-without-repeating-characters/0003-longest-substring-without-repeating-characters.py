@@ -3,21 +3,15 @@ class Solution:
         i,j = 0,0
         used = set()
         ans = 0
-        while j < len(s):
-            # if i>j:
-            #     used.clear()
-            #     j=i
-            #     continue
+        for j in range(len(s)):
             if s[j] not in used:
+                ans = max(ans,j-i+1)  
                 used.add(s[j])
-            else:
-                ans = max(ans,j-i)
-                while i < j:
-                    if s[i] == s[j]:
-                        break
-                    used.remove(s[i])
-                    i+=1
+                continue
+            while s[i] != s[j]:
+                used.remove(s[i])
                 i+=1
-            j+=1
+            i+=1
+        
         return max(ans,j-i)
             
