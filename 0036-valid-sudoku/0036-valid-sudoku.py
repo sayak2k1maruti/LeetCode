@@ -25,7 +25,6 @@ class Solution:
                         if board[i][j] in check:
                             return False
                         check.add(board[i][j])
-                check.clear()
         
         return True
                         
