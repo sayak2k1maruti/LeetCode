@@ -1,31 +1,19 @@
 class Solution:
     def isValidSudoku(self, board: list[list[str]]) -> bool:
-    
-        check_row = set()
-        check_col = set()
+        rows  = [set() for _ in range(9)]
+        cols  = [set() for _ in range(9)]
+        boxes  = [set() for _ in range(9)]
+
         for i in range(9):
             for j in range(9):
-                if board[i][j] in check_row or board[j][i] in check_col:
+                if board[i][j] == ".":
+                    continue
+                b = (i//3) * 3 + (j//3)
+                if board[i][j] in rows[i] or board[i][j] in cols[j] or board[i][j] in boxes[b]:
                     return False
-                if board[i][j] != '.':
-                    check_row.add(board[i][j])
-                if board[j][i] != '.':
-                    check_col.add(board[j][i])
-            check_row.clear()
-            check_col.clear()
-        
-
-        for x in range(0,9,3):
-            for y in range(0,9,3):
-                check = set()
-                for i in range(x,x+3):
-                    for j in range(y,y+3):
-                        if board[i][j] == ".":
-                            continue
-                        if board[i][j] in check:
-                            return False
-                        check.add(board[i][j])
-        
+                rows[i].add(board[i][j])
+                cols[j].add(board[i][j])
+                boxes[b].add(board[i][j])
         return True
-                        
-        
+
+
