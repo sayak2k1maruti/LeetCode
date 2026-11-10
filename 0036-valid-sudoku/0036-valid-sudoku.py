@@ -20,10 +20,11 @@ class Solution:
                 check = set()
                 for i in range(x,x+3):
                     for j in range(y,y+3):
+                        if board[i][j] == ".":
+                            continue
                         if board[i][j] in check:
                             return False
-                        if board[i][j] != '.':
-                            check.add(board[i][j])
+                        check.add(board[i][j])
                 check.clear()
         
         return True
