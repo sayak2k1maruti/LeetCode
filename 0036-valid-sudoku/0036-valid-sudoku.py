@@ -15,9 +15,9 @@ class Solution:
             check_col.clear()
         
 
-        check = set()
         for x in range(0,9,3):
             for y in range(0,9,3):
+                check = set()
                 for i in range(x,x+3):
                     for j in range(y,y+3):
                         if board[i][j] == ".":
