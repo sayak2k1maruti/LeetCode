@@ -4,12 +4,12 @@ class Solution:
             return False
         char_map = {}
         values = set()
-        for i in range(len(s)):
-            if s[i] in char_map:
-                if char_map[s[i]] != t[i]:
+        for a,b in zip(s,t):
+            if a in char_map:
+                if char_map[a] != b:
                     return False
-            elif t[i] in values:
+            elif b in values:
                 return False
-            char_map[s[i]] = t[i]
-            values.add(t[i])
+            char_map[a] = b
+            values.add(b)
         return True
