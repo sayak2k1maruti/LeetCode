@@ -2,27 +2,25 @@ from collections import deque
 
 class Solution:
     def countNonDecreasingSubarrays(self, nums: List[int], k: int) -> int:
+        nums = nums[::-1]
         n = len(nums)
-        i, j = n - 1, n - 1
+        i,j = 0,0
         diff = 0
         count = 0
-        blocks = deque()  
-
-        while i >= 0:
+        dq = deque()
+        while j<n:
             cnt = 1
-            while blocks and blocks[-1][0] < nums[i]:
-                v, c = blocks.pop()
-                diff += (nums[i] - v) * c
+            while dq and dq[-1][0] < nums[j]:
+                v,c = dq.pop()
+                diff += (nums[j] - v) * c
                 cnt += c
-            blocks.append([nums[i], cnt])
-
-            while diff > k:
-                diff -= blocks[0][0] - nums[j]
-                blocks[0][1] -= 1
-                if blocks[0][1] == 0:
-                    blocks.popleft()
-                j -= 1
-
-            count += j - i + 1  
-            i -= 1
+            dq.append([nums[j], cnt])
+            while diff>k:
+                diff -= dq[0][0] - nums[i]
+                dq[0][1] -= 1
+                if dq[0][1]==0:
+                    dq.popleft()
+                i+=1
+            count += j-i+1
+            j+=1
         return count
