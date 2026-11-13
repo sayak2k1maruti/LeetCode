@@ -11,5 +11,4 @@ class Solution:
             if n==1:
                 return True
             n = digitSq(n)
-            print(n)
         return False
