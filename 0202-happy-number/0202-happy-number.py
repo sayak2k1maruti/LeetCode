@@ -10,7 +10,6 @@ class Solution:
             used.add(n)
             if n==1:
                 return True
-            elif n<4:
-                return False
             n = digitSq(n)
+            print(n)
         return False
