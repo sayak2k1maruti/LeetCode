@@ -1,6 +1,5 @@
 class Solution:
     def summaryRanges(self, nums: list[int]) -> list[str]:
-        prev = 0
         ans = []
         if not nums:
             return []
@@ -8,6 +7,7 @@ class Solution:
             ans.append(
                 f"{nums[i]}" if i==j else f"{nums[i]}->{nums[j]}"
             )
+        prev = 0
         for i in range(1,len(nums)):
             if nums[i] != nums[i-1] + 1:
                 append(prev,i-1)
