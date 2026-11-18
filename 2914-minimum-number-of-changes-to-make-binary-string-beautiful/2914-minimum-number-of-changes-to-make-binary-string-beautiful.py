@@ -1,6 +1,3 @@
 class Solution:
     def minChanges(self, s: str) -> int:
-        count = 0
-        for i in range(0,len(s),2):
-            count += s[i] != s[i+1]
-        return count
+        return sum(p!=n for p,n in zip(s[::2],s[1::2]))
