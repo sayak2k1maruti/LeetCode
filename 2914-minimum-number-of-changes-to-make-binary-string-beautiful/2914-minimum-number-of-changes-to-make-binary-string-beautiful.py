@@ -1,3 +1,4 @@
+from operator import ne
 class Solution:
     def minChanges(self, s: str) -> int:
-        return sum(p!=n for p,n in zip(s[::2],s[1::2]))
+        return sum(map(ne,s[::2],s[1::2]))
