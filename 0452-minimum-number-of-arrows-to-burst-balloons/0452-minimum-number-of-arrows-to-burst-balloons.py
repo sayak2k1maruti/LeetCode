@@ -3,7 +3,7 @@ class Solution:
         points.sort(key=lambda x: x[1])
         e_p = points[0][1]
         arrow = 1
-        for s,e in points[1:]:
+        for s,e in points:
             if s > e_p:
                 arrow += 1
                 e_p = e
