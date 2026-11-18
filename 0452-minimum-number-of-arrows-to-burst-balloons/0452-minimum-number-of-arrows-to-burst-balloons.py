@@ -4,9 +4,7 @@ class Solution:
         e = points[0][1]
         arrow = 1
         for i in range(1,len(points)):
-            if points[i][0] <= e:
-                e = min(e,points[i][1])
-            else :
+            if points[i][0] > e:
                 arrow += 1
                 e = points[i][1]
         return arrow
