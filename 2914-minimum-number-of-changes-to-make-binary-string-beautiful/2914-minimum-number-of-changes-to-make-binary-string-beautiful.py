@@ -1,4 +1,6 @@
-from operator import ne
 class Solution:
     def minChanges(self, s: str) -> int:
-        return sum(map(ne,s[::2],s[1::2]))
+        count = 0
+        for i in range(0,len(s),2):
+            count += s[i] != s[i+1]
+        return count
