@@ -1,8 +1,8 @@
 import heapq
 class Solution:
     def minimizeSum(self, nums: List[int]) -> int:
-        # if len(nums) <=3 :
-        #     return 0
+        if len(nums) <=3 :
+            return 0
         min_three = heapq.nsmallest(3, nums)
         max_three = heapq.nlargest(3,nums)
         return min(
