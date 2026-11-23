@@ -5,6 +5,7 @@ class ProductOfNumbers:
 
     def add(self, num: int) -> None:
         if num == 0:
+            del self.products
             self.products = [1]
         else:
             self.products.append(self.products[-1] * num)
