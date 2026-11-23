@@ -5,14 +5,13 @@ class ProductOfNumbers:
 
     def add(self, num: int) -> None:
         if num == 0:
-            del self.products
             self.products = [1]
         else:
             self.products.append(self.products[-1] * num)
 
     def getProduct(self, k: int) -> int:
         last = len(self.products) - 1 - k 
-        return self.products[-1] // self.products[last] if last >= 0 else 0
+        return 0 if last<0 else self.products[-1] // self.products[last]
 
 # Your ProductOfNumbers object will be instantiated and called as such:
 # obj = ProductOfNumbers()
