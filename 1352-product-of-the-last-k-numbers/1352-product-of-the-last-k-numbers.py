@@ -6,8 +6,8 @@ class ProductOfNumbers:
     def add(self, num: int) -> None:
         if num == 0:
             self.products = [1]
-            return
-        self.products.append(self.products[-1] * num)
+        else:
+            self.products.append(self.products[-1] * num)
 
     def getProduct(self, k: int) -> int:
         last = len(self.products) - 1 - k 
