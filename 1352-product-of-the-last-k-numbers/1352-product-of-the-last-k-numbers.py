@@ -1,17 +1,17 @@
-import math
 class ProductOfNumbers:
 
     def __init__(self):
-        self.nums = []       
+        self.products = [1]
 
     def add(self, num: int) -> None:
-        self.nums.append(num)
-        
+        if num == 0:
+            self.products = [1]
+            return
+        self.products.append(self.products[-1] * num)
 
     def getProduct(self, k: int) -> int:
-        return math.prod(self.nums[-k:])
-        
-
+        last = len(self.products) - 1 - k 
+        return self.products[-1] // self.products[last] if last >= 0 else 0
 
 # Your ProductOfNumbers object will be instantiated and called as such:
 # obj = ProductOfNumbers()
