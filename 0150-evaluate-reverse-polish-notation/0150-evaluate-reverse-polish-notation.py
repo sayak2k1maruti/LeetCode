@@ -1,21 +1,17 @@
 class Solution:
     def evalRPN(self, tokens: list[str]) -> int:
         stack = []
-        def do_op(a,b,operator):
-            match operator:
-                case '+':
-                    return a+b
-                case '-':
-                    return a-b
-                case '*':
-                    return a*b
-                case '/':
-                    return int(a/b)
-        operators = set(['+','-','/','*'])
+        operator_map = {
+            '+' : lambda a,b : a+b,
+            '-' : lambda a,b : a-b,
+            '*' : lambda a,b : a*b,
+            '/' : lambda a,b : int(a/b)
+        }
+
         for token in tokens:
-            if token in operators:
+            if token in operator_map:
                 b,a = stack.pop(), stack.pop()
-                stack.append(do_op(a,b,token))
+                stack.append(operator_map[token](a,b))
             else:
                 stack.append(int(token))
         return stack[-1]
